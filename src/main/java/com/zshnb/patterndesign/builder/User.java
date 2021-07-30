@@ -39,6 +39,26 @@ public class User {
             return this;
         }
 
+        public Builder clearId() {
+            user.id = 0;
+            return this;
+        }
+
+        public Builder clearName() {
+            user.name = "";
+            return this;
+        }
+
+        public Builder clearAddress() {
+            user.address = "";
+            return this;
+        }
+
+        public Builder clearSex() {
+            user.sex = "";
+            return this;
+        }
+
         public User build() {
             return user;
         }

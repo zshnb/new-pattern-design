@@ -13,6 +13,10 @@ public class Main {
             .setSex("sex2").build();
         System.out.println(user);
 
+        user = user.toBuilder()
+            .clearAddress().build();
+        System.out.println(user);
+
         GetUserResponse response = GetUserResponse.newBuilder()
             .addUser(user)
             .setTotal(5).build();
