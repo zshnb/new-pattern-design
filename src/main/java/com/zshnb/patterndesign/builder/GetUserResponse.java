@@ -37,12 +37,12 @@ public class GetUserResponse {
         }
     }
 
-    public static GetUserResponse.Builder newBuilder() {
-        return new GetUserResponse.Builder(new GetUserResponse());
+    public static Builder newBuilder() {
+        return new Builder(new GetUserResponse());
     }
 
-    public GetUserResponse.Builder toBuilder() {
-        return new GetUserResponse.Builder(this);
+    public Builder toBuilder() {
+        return new Builder(this);
     }
 
     public List<User> getUsers() {
