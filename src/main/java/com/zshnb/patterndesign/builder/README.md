@@ -14,4 +14,9 @@ System.out.println(user);
 user = user.toBuilder()
     .setSex("sex2").build();
 System.out.println(user);
+
+// 删除实体对象某些属性
+user = user.toBuilder()
+.clearAddress().build();
+System.out.println(user);
 ```
