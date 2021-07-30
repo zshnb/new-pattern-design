@@ -1,4 +1,5 @@
 {
+  "packageName": "com.zshnb.patterndesign",
   "fields": [
     {
       "name": "id",
