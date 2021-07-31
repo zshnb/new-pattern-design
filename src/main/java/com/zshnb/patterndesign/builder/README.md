@@ -17,6 +17,6 @@ System.out.println(user);
 
 // 删除实体对象某些属性
 user = user.toBuilder()
-.clearAddress().build();
+    .clearAddress().build();
 System.out.println(user);
 ```
