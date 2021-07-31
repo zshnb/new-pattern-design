@@ -1,5 +1,6 @@
 {
-  "packageName": "com.zshnb.patterndesign",
+  "name": "student",
+  "packageName": "com.zshnb.patterndesign.builder",
   "fields": [
     {
       "name": "id",

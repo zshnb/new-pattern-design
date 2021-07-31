@@ -2,12 +2,12 @@ package com.zshnb.patterndesign.builder.generator;
 
 import com.google.gson.Gson;
 import com.squareup.javapoet.*;
+import com.zshnb.patterndesign.builder.User;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.text.WordUtils;
 
 import javax.lang.model.element.Modifier;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -30,24 +30,22 @@ public class Generator {
         fieldTypeNameWithTypeName.put("String", TypeName.get(String.class));
     }
 
-    public static void main(String[] args) {
-        Generator generator = new Generator();
-        URL url = generator.getClass().getResource("/");
+    public void generate() {
+        URL url = getClass().getResource("/");
         List<File> jsonFiles = Arrays.stream(new File(url.getFile()).listFiles(pathname -> pathname.getName().endsWith(".json"))).collect(Collectors.toList());
         jsonFiles.forEach(it -> {
-            System.out.println(it.getName());
             try {
-                generator.generate(it);
+                generate(FileUtils.readFileToString(it, StandardCharsets.UTF_8));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    public void generate(File file) throws IOException {
+    public void generate(String json) throws IOException {
         Gson gson = new Gson();
-        Entity entity = gson.fromJson(FileUtils.readFileToString(file, StandardCharsets.UTF_8), Entity.class);
-        String entityClassName = WordUtils.capitalize(file.getName().substring(0, file.getName().indexOf(".")));
+        Entity entity = gson.fromJson(json, Entity.class);
+        String entityClassName = WordUtils.capitalize(entity.getName());
         String entityObjectLiteral = WordUtils.uncapitalize(entityClassName);
         ClassName className = ClassName.get(entity.getPackageName(), entityClassName);
 
@@ -114,6 +112,6 @@ public class Generator {
         JavaFile javaFile = JavaFile.builder(entity.getPackageName(), entityTypeBuilder.build())
             .build();
 
-        javaFile.writeToFile(new File(String.format("%s.java", entityClassName)));
+        javaFile.writeToFile(new File(String.format("src/main/java")));
     }
 }
