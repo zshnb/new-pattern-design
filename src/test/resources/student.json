@@ -1,0 +1,14 @@
+{
+  "name": "student",
+  "packageName": "com.zshnb.patterndesign.builder",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": "String"
+    }
+  ]
+}
