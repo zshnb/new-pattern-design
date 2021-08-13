@@ -21,4 +21,11 @@ public class FilterChainTest {
         FilterChain filterChain = new FilterChain();
         Assertions.assertThrows(RuntimeException.class, () -> filterChain.handle(request), "LocaleFilter not pass");
     }
+
+    @Test
+    public void allPass() {
+        Request request = new Request("192.2.1.1", "cn", LocalDateTime.now());
+        FilterChain filterChain = new FilterChain();
+        filterChain.handle(request);
+    }
 }
