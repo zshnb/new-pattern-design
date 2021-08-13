@@ -1,6 +1,7 @@
-package com.zshnb.patterndesign.builder.generator;
+package com.zshnb.patterndesign.builder.generator.builder;
 
 import com.zshnb.patterndesign.builder.Student;
+import com.zshnb.patterndesign.builder.generator.Generator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
