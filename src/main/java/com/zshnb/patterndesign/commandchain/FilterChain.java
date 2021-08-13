@@ -34,4 +34,8 @@ public class FilterChain {
             }
         });
     }
+
+    public PriorityQueue<FilterDefinition> getFilterDefinitions() {
+        return filterDefinitions;
+    }
 }
