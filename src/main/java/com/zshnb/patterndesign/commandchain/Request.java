@@ -1,4 +1,4 @@
-package com.zshnb.patterndesign.cmmandchain;
+package com.zshnb.patterndesign.commandchain;
 
 import java.time.LocalDateTime;
 
