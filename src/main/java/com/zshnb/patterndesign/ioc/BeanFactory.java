@@ -1,6 +1,5 @@
 package com.zshnb.patterndesign.ioc;
 
-import com.zshnb.patterndesign.commandchain.Order;
 import org.reflections.Reflections;
 import org.reflections.scanners.TypeAnnotationsScanner;
 import org.reflections.util.ConfigurationBuilder;
@@ -18,11 +17,14 @@ public class BeanFactory {
         Reflections reflections = new Reflections(new ConfigurationBuilder()
             .forPackages(this.getClass().getPackage().getName())
             .addScanners(new TypeAnnotationsScanner()));
-        Set<Class<?>> classes = reflections.getTypesAnnotatedWith(Order.class);
+        Set<Class<?>> classes = reflections.getTypesAnnotatedWith(Bean.class);
         classes.forEach(it -> classNameWithClass.put(it.getName(), it));
     }
 
     public Object getBean(Class<?> clz) {
+        if (!classNameWithClass.containsKey(clz.getName())) {
+            throw new RuntimeException("ClassNotFound");
+        }
         if (classNameWithObject.containsKey(clz)) {
             return classNameWithObject.get(clz);
         }
