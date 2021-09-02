@@ -10,11 +10,12 @@ public class BeanFactoryTest {
     @Test
     public void getBeanSuccessful() {
         BeanFactory beanFactory = new BeanFactory();
-        Assertions.assertEquals(1, beanFactory.getClassNameWithClass().size());
+        Assertions.assertEquals(2, beanFactory.getClassNameWithClass().size());
         Assertions.assertEquals(0, beanFactory.getClassNameWithObject().size());
         UserDao userDao = (UserDao) beanFactory.getBean(UserDao.class);
         Assertions.assertEquals(1, userDao.getId());
-        Assertions.assertEquals(1, beanFactory.getClassNameWithObject().size());
+        Assertions.assertEquals(2, beanFactory.getClassNameWithObject().size());
+        Assertions.assertNotNull(userDao.getUserConfig());
     }
 
     @Test

@@ -5,6 +5,8 @@ import org.reflections.scanners.TypeAnnotationsScanner;
 import org.reflections.util.ConfigurationBuilder;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -30,6 +32,17 @@ public class BeanFactory {
         }
         try {
             Object o = clz.getDeclaredConstructor().newInstance();
+            Arrays.stream(clz.getDeclaredFields()).filter(it -> it.isAnnotationPresent(Autowired.class)).forEach(it -> {
+                Object dependency = getBean(it.getType());
+                try {
+                    if (it.getModifiers() == Modifier.PRIVATE) {
+                        it.setAccessible(true);
+                    }
+                    it.set(o, dependency);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            });
             classNameWithObject.put(clz, o);
             return o;
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
