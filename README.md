@@ -1,23 +1,23 @@
 ### 设计模式实践
-选取一些经典的设计模式，然后参考其在开源项目中的使用方式，模仿实现，计划如下
-- 建造者模式
+选取一些经典的设计模式，然后参考其在开源项目中的使用方式，模仿实现
+- [建造者模式](https://github.com/zshnb/new-pattern-design/tree/master/src/main/java/com/zshnb/patterndesign/builder)
+  
+  Lombok的@Builder注解
+- [责任链模式](https://github.com/zshnb/new-pattern-design/tree/master/src/main/java/com/zshnb/patterndesign/commandchain)
 
-  模仿对象：Lombok的@Builder注解，grpc生成的Java类
-- 责任链模式
-
-  模仿对象：Tomcat的Filter
+  Tomcat的Filter
 - 工厂模式与单例模式
 
   模仿对象：Spring的IOC容器
 - 策略模式
 
   模仿对象：Spring的AOP代理，算法包
-- 门面模式
+- [门面模式](https://github.com/zshnb/new-pattern-design/tree/master/src/main/java/com/zshnb/patterndesign/facade)
 
-  模仿对象：模板引擎Velocity
-- 装饰器模式
+  对外提供服务的SDK
+- [装饰器模式](https://github.com/zshnb/new-pattern-design/tree/master/src/main/java/com/zshnb/patterndesign/decorator)
 
-  模仿对象：Commons-collection的ListUtils，Java的IO
+  ListUtil
 - 观察者模式
 
   模仿对象：Spring的ApplicationListener
