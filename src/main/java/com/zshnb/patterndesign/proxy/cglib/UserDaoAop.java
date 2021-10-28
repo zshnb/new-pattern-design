@@ -1,4 +1,4 @@
-package com.zshnb.patterndesign.proxy.jdk;
+package com.zshnb.patterndesign.proxy.cglib;
 
 import com.zshnb.patterndesign.proxy.Aop;
 import com.zshnb.patterndesign.proxy.Before;

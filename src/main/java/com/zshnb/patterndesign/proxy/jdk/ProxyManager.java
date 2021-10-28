@@ -1,6 +1,7 @@
 package com.zshnb.patterndesign.proxy.jdk;
 
-import com.zshnb.patterndesign.ioc.Bean;
+import com.zshnb.patterndesign.proxy.Aop;
+import com.zshnb.patterndesign.proxy.Before;
 import org.reflections.Reflections;
 import org.reflections.scanners.TypeAnnotationsScanner;
 import org.reflections.util.ConfigurationBuilder;

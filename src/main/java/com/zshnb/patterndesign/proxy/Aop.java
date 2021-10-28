@@ -1,4 +1,4 @@
-package com.zshnb.patterndesign.proxy.jdk;
+package com.zshnb.patterndesign.proxy;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
